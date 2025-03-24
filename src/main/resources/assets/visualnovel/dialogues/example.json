@@ -1,0 +1,38 @@
+{
+  "id": "example",
+  "name": "示例对话",
+  "nodes": {
+    "start": {
+      "id": "start",
+      "text": "你好，{player_name}！欢迎使用视觉小说引擎。\n你手中拿着的是 {held_item}。",
+      "sound": "visualnovel:dialogue/greeting",
+      "next_node_id": "choice"
+    },
+    "choice": {
+      "id": "choice",
+      "text": "你想了解什么？",
+      "sound": "visualnovel:dialogue/question",
+      "choices": [
+        {
+          "text": "如何配置对话",
+          "next_node_id": "config_info"
+        },
+        {
+          "text": "结束对话",
+          "next_node_id": "end"
+        }
+      ]
+    },
+    "config_info": {
+      "id": "config_info",
+      "text": "你可以在配置文件夹中创建JSON文件来定义对话。\n每个对话包含多个节点和选择分支。",
+      "sound": "visualnovel:dialogue/explanation",
+      "next_node_id": "end"
+    },
+    "end": {
+      "id": "end",
+      "text": "感谢使用！再见。",
+      "sound": "visualnovel:dialogue/goodbye"
+    }
+  }
+}
