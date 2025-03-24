@@ -2,6 +2,8 @@ package com.visualnovel.dialogue;
 
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * 对话类，用于存储对话配置
@@ -10,6 +12,10 @@ public class Dialogue {
     private String id;
     private String name;
     private Map<String, DialogueNode> nodes;
+
+    public Dialogue() {
+        this.nodes = new HashMap<>();
+    }
 
     public String getId() {
         return id;
@@ -46,6 +52,10 @@ public class Dialogue {
         private String condition;
         private String fallbackNodeId;
         private List<Choice> choices;
+
+        public DialogueNode() {
+            this.choices = new ArrayList<>();
+        }
 
         public String getId() {
             return id;
@@ -110,6 +120,11 @@ public class Dialogue {
     public static class Choice {
         private String text;
         private String nextNodeId;
+
+        public Choice(String text, String nextNodeId) {
+            this.text = text;
+            this.nextNodeId = nextNodeId;
+        }
 
         public String getText() {
             return text;

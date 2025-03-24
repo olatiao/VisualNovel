@@ -1,23 +1,30 @@
 package com.visualnovel.config;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 
 /**
  * 对话状态类，用于存储玩家当前对话的状态
  */
 public class DialogueState {
     private final String dialogueId;
+    private final PlayerEntity player;
     private String currentNodeId;
-    private final Entity target;
+    private final Entity targetEntity;
     
-    public DialogueState(String dialogueId, Entity target) {
+    public DialogueState(String dialogueId, PlayerEntity player, Entity targetEntity) {
         this.dialogueId = dialogueId;
+        this.player = player;
+        this.targetEntity = targetEntity;
         this.currentNodeId = "start";
-        this.target = target;
     }
     
     public String getDialogueId() {
         return dialogueId;
+    }
+    
+    public PlayerEntity getPlayer() {
+        return player;
     }
     
     public String getCurrentNodeId() {
@@ -28,7 +35,7 @@ public class DialogueState {
         this.currentNodeId = currentNodeId;
     }
     
-    public Entity getTarget() {
-        return target;
+    public Entity getTargetEntity() {
+        return targetEntity;
     }
 } 
